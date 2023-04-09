@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="my.pjt.mapper.ProductMapper">
+
+	<insert id="insert"> 	<!--입력 -->
+		insert into
+		product(code,pname,cost,pnum,jnum,sale,gcode)values(#{code},#{pname},#{cost},#{pnum},#{jnum},#{sale},#{gcode})
+	</insert>
+
+	<select id="read" resultType="my.pjt.domain.ProductVO"> <!-- 보기 -->
+		select * from product where code = #{code}
+
+	</select>
+
+	<select id="getList" resultType="my.pjt.domain.ProductVO"> <!--리스트보기 -->
+		select * from product
+	</select>
+
+	<select id="getList2" resultType="my.pjt.domain.ProductVO"> <!--검색리스트보기 -->
+		select * from product where code = #{code}
+	</select>
+
+	<delete id="delete"> <!--삭제처리 -->
+		delete from product where code = #{code}
+	</delete>
+
+	<update id="update"> <!--수정처리 -->
+		update product set
+		pname=#{pname},cost=#{cost},pnum=#{pnum},jnum=#{jnum},sale=#{sale},gcode=#{gcode}
+		where code = #{code}
+	</update>
+
+	<select id="firstmade" resultType="my.pjt.domain.ProductVO"> <!-- 우선생산 -->
+		<![CDATA[SELECT * FROM product WHERE jnum < pnum * 0.2]]>
+
+	</select>
+
+	<select id="stock_quantity" resultType="my.pjt.domain.ProductVO"> <!-- 재고수량 -->
+		SELECT * FROM product
+
+	</select>
+
+	<select id="stock_quantity2"
+		resultType="my.pjt.domain.ProductVO"> <!-- 검색재고수량 -->
+		SELECT * FROM product WHERE gcode = #{gcode}
+
+	</select>
+
+	<select id="profit_ranking" resultType="my.pjt.domain.ProductVO"> <!-- 이익순위 -->
+		<![CDATA[SELECT code,pname,(sale - cost) * sales_volume AS profit fROM product order by profit desc]]>
+
+	</select>
+
+
+
+</mapper>
