@@ -8,7 +8,7 @@ JDK 1.8<br>
 Tomcat 9.0<br>
 Spring 5.0.7<br>
 Maven 2.5.1<br>
-Oracle 11<br>
+MySQL<br>
 <br>
 # index 페이지<br>
 페이지 아동과 현재 시간을볼수 있게 했다.<br> 
@@ -43,5 +43,7 @@ db에 있는 데이터 중 20% 이하로 남은 제품만 나오도록 했다<br
 재고수량을 보여주는 페이지로 옵션을 선택해서 그룹코드를 선택할수 있다.<br>
 <img width="100%" src="https://user-images.githubusercontent.com/110965244/230785600-b300ca1a-d13c-4897-8a57-f2043c87f7f5.gif"/> <br><br><br
 
+# MySQL
+![image](https://user-images.githubusercontent.com/110965244/230917939-55a1618c-ab8e-43b5-98cf-6ba63bcbee4a.png)
 
 
